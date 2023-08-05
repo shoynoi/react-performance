@@ -3,14 +3,11 @@
 
 import * as React from 'react'
 
-const Globe = React.lazy(() => import('../globe'))
+const loadGlobe = () => import('../globe')
+const Globe = React.lazy(loadGlobe)
 
 function App() {
   const [showGlobe, setShowGlobe] = React.useState(false)
-
-  const handleEvent = () => {
-    import('../globe')
-  }
 
   return (
     <div
@@ -25,8 +22,8 @@ function App() {
     >
       <label
         style={{marginBottom: '1rem'}}
-        onMouseOver={handleEvent}
-        onFocus={handleEvent}
+        onMouseEnter={loadGlobe}
+        onFocus={loadGlobe}
       >
         <input
           type="checkbox"
