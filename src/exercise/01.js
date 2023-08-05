@@ -8,6 +8,10 @@ const Globe = React.lazy(() => import('../globe'))
 function App() {
   const [showGlobe, setShowGlobe] = React.useState(false)
 
+  const handleEvent = () => {
+    import('../globe')
+  }
+
   return (
     <div
       style={{
@@ -19,7 +23,11 @@ function App() {
         padding: '2rem',
       }}
     >
-      <label style={{marginBottom: '1rem'}}>
+      <label
+        style={{marginBottom: '1rem'}}
+        onMouseOver={handleEvent}
+        onFocus={handleEvent}
+      >
         <input
           type="checkbox"
           checked={showGlobe}
